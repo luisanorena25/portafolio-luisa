@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luma Design | Portafolio de Luisa Noreña</title>
+  <meta name="description" content="Portafolio de Luisa Noreña — Luma Design. Diseño gráfico, social media y marketing digital con magia visual.">
+  <meta name="theme-color" content="#140d2b">
+  <meta property="og:title" content="Luma Design | Portafolio de Luisa Noreña">
+  <meta property="og:description" content="Diseño gráfico, social media y marketing digital.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/fachada.jpeg">
+  <link rel="icon" href="img/dk porcelanatos.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/magia.css">
+  <link rel="stylesheet" href="css/escena.css">
+  <link rel="stylesheet" href="css/portafolio.css">
+</head>
+<body>
+
+  <canvas id="cielo" aria-hidden="true"></canvas>
+
+  <header class="menu">
+    <a href="#inicio" class="menu__logo">Luma</a>
+    <nav class="menu__links">
+      <a href="#aliados">Aliados</a>
+      <a href="#disenos">Diseños</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="seccion hero">
+      <p class="hero__etiqueta">Diseño · Social Media · Marketing Digital</p>
+      <h1 class="hero__titulo" id="titulo">Luma Design</h1>
+      <p class="hero__frase">Donde las ideas se convierten en magia visual</p>
+      <a href="#aliados" class="boton">Descubre la magia ✨</a>
+    </section>
+
+    <section id="vision" class="vision">
+      <div class="vision__sticky">
+        <div class="vision__grid" id="rejilla"></div>
+        <h2 class="vision__titulo">
+          <span>Cada marca tiene su magia</span>
+          <span>yo la convierto en diseño</span>
+        </h2>
+      </div>
+    </section>
+
+    <section id="aliados" class="seccion">
+      <h2 class="seccion__titulo">Aliados de Estilo</h2>
+      <p>Aquí irán tus marcas.</p>
+    </section>
+
+    <section id="disenos" class="seccion">
+      <h2 class="seccion__titulo">Diseños</h2>
+      <p>Aquí irán tus piezas.</p>
+    </section>
+
+    <section id="sobre-mi" class="seccion">
+      <h2 class="seccion__titulo">Sobre mí</h2>
+
+      <div class="sobre" id="sobre" data-skip-sube>
+        <div class="sobre__foto magic" style="--d: 1.2s">
+          <img id="fotoLuisa" alt="Luisa M. Noreña">
+        </div>
+
+        <div class="sobre__texto">
+          <p class="sobre__intro magic" style="--d: 0.1s">
+            Hola, soy Luisa — diseñadora visual, futura desarrolladora
+            y repostera por amor al detalle.
+          </p>
+
+          <p class="magic" style="--d: 0.35s">
+            Tengo 26 años y una obsesión: crear. Vengo del diseño, pero no me
+            quedo quieta — estudio Desarrollo de Software para entender lo que
+            hay detrás de cada píxel, y horneo pasteles porque la precisión
+            también sabe dulce.
+          </p>
+
+          <p class="magic" style="--d: 0.55s">
+            He trabajado en diseño, fotografía y contenido digital para marcas
+            como <b>DK Porcelanatos</b>, <b>La Bocana</b> y <b>GB Cell</b>.
+            Antes pasé por el lado comercial en <b>Auteco</b>, <b>Je&amp;ma Store</b>
+            y <b>Apolo Gaming</b>, donde aprendí a escuchar lo que la gente
+            realmente necesita.
+          </p>
+
+          <p class="sobre__cierre magic" style="--d: 0.8s">
+            Me considero multifacética, curiosa y en constante evolución. Creo
+            firmemente en el poder de unir <b>técnica + arte + estrategia</b>:
+            no importa si es un flyer, un algoritmo o un pastel decorado — si
+            lo hago, lo doy todo.
+          </p>
+
+          <div class="sobre__tags magic" style="--d: 1s">
+            <span>Diseño Visual</span>
+            <span>Desarrollo de Software</span>
+            <span>Marketing Digital</span>
+            <span>Fotografía</span>
+            <span>Repostería</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2 class="seccion__titulo">Trabajemos juntos</h2>
+      <p class="contacto__sub">
+        Déjame tus datos y te contacto lo antes posible. También puedes escribirme directo por WhatsApp o correo 👇
+      </p>
+
+      <div class="contacto">
+        <form class="contacto__form" id="formContacto" novalidate>
+          <label class="campo">
+            <span class="campo__label">Nombre completo</span>
+            <input type="text" name="nombre" required
+                   placeholder="Escribe tu nombre completo"
+                   autocomplete="name">
+          </label>
+
+          <label class="campo">
+            <span class="campo__label">Número de teléfono</span>
+            <input type="tel" name="telefono" required
+                   placeholder="Ej: +57 300 123 4567"
+                   autocomplete="tel" inputmode="tel">
+            <small class="campo__ayuda">
+              Incluye el código de tu país (ej: <b>+57</b> para Colombia,
+              <b>+1</b> para EE.UU., <b>+52</b> para México, etc.).
+            </small>
+          </label>
+
+          <label class="campo">
+            <span class="campo__label">Correo electrónico</span>
+            <input type="email" name="correo" required
+                   placeholder="tucorreo@ejemplo.com"
+                   autocomplete="email">
+          </label>
+
+          <button type="submit" class="boton contacto__enviar">
+            Enviar por WhatsApp ✨
+          </button>
+
+          <p class="contacto__aviso" id="avisoForm" hidden></p>
+        </form>
+
+        <aside class="contacto__directo">
+          <h3>O escríbeme directo</h3>
+
+          <a href="mailto:luisa.norena2511@gmail.com?subject=Quiero%20trabajar%20contigo%20%E2%80%94%20Luma%20Design"
+             class="contacto__dato">
+            <span class="contacto__ico">✉</span>
+            <span>
+              <small>Correo</small>
+              <b>luisa.norena2511@gmail.com</b>
+            </span>
+          </a>
+
+          <a href="tel:+573172859988" class="contacto__dato">
+            <span class="contacto__ico">☎</span>
+            <span>
+              <small>Teléfono</small>
+              <b>+57 317 285 9988</b>
+            </span>
+          </a>
+
+          <a href="https://wa.me/573172859988?text=Hola%20Luisa%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo%20%E2%9C%A8"
+             target="_blank" rel="noopener" class="contacto__dato">
+            <span class="contacto__ico">💬</span>
+            <span>
+              <small>WhatsApp</small>
+              <b>Escríbeme ahora</b>
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/magia.js"></script>
+  <script src="js/escena.js"></script>
+  <script src="js/portafolio.js"></script>
+</body>
+</html>

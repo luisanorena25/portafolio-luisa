@@ -1,0 +1,58 @@
+/* Cursor varita: solo si hay mouse real y el usuario no pidió menos movimiento */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body, a, button { cursor: none !important; }
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .varita { display: none; }
+  #magia  { display: none; }
+}
+
+#magia {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  z-index: 9998; pointer-events: none;
+}
+.varita {
+  position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none;
+  transform-origin: 8px 8px;
+  filter: drop-shadow(0 0 6px var(--oro));
+  transition: filter 0.3s;
+}
+.varita.activa { filter: drop-shadow(0 0 14px var(--rosa)) drop-shadow(0 0 4px #fff); }
+
+/* Letras del título */
+.hero__titulo { position: relative; }
+.hero__titulo .letra {
+  display: inline-block;
+  color: var(--crema);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  animation: none;
+  transition: color 0.25s, text-shadow 0.25s, transform 0.2s;
+}
+.hero__titulo .letra--b { color: var(--rosa); font-style: italic; }
+
+/* Portal mágico entre secciones */
+.portal {
+  position: fixed; inset: 0; z-index: 9997; pointer-events: none;
+  background: radial-gradient(circle, var(--rosa), var(--lila) 45%, var(--noche) 80%);
+  clip-path: circle(0% at var(--px, 50%) var(--py, 50%));
+  transition: clip-path 0.7s ease-in-out;
+}
+.portal.abierto { clip-path: circle(150% at var(--px, 50%) var(--py, 50%)); }
+
+/* Aparición al hacer scroll */
+.revelar {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  filter: blur(6px);
+  transition: all 0.9s ease;
+}
+.revelar.visible { opacity: 1; transform: none; filter: none; }
+
+/* Barra de progreso */
+.progreso {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 11;
+  background: linear-gradient(90deg, var(--oro), var(--rosa), var(--lila));
+  box-shadow: 0 0 10px var(--rosa);
+}

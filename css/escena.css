@@ -1,0 +1,103 @@
+html { scroll-behavior: auto; }
+
+/* ===== Inicio cinematográfico ===== */
+.hero { position: relative; overflow: hidden; }
+.hero > *:not(.aurora):not(.mota) { position: relative; z-index: 2; }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(20, 13, 43, 0.75) 100%);
+}
+.aurora { position: absolute; inset: 0; z-index: 0; }
+.aurora i {
+  position: absolute; width: 55vmax; height: 55vmax; border-radius: 50%;
+  filter: blur(90px); opacity: 0.28; animation: deriva 18s ease-in-out infinite alternate;
+}
+.aurora i:nth-child(1) { background: var(--rosa); left: -15%; top: -20%; }
+.aurora i:nth-child(2) { background: var(--lila); right: -20%; top: 10%; animation-duration: 24s; }
+.aurora i:nth-child(3) { background: var(--oro); left: 25%; bottom: -35%; animation-duration: 21s; }
+@keyframes deriva { to { transform: translate(8vw, 6vh) scale(1.2); } }
+
+.mota {
+  position: absolute; bottom: -10px; z-index: 1; border-radius: 50%; opacity: 0;
+  background: var(--crema); box-shadow: 0 0 10px 2px var(--oro);
+  animation: subir linear infinite;
+}
+@keyframes subir {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.9; }
+  100% { transform: translateY(-105vh) translateX(40px); opacity: 0; }
+}
+
+/* ===== Logo animado ===== */
+.menu__logo { display: flex; align-items: center; gap: 0.5rem; }
+.emblema {
+  display: block; width: 110px; height: 110px; margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 14px rgba(226, 194, 131, 0.6));
+  animation: pulsoLuz 4s ease-in-out infinite;
+}
+.emblema--mini { display: inline-block; width: 34px; height: 34px; margin: 0; }
+.emblema svg { width: 100%; height: 100%; overflow: visible; }
+.emb-luna {
+  fill: var(--oro-rosado); fill-opacity: 0; stroke: var(--oro); stroke-width: 2; stroke-linejoin: round;
+  stroke-dasharray: 300; stroke-dashoffset: 300;
+  transform-box: fill-box; transform-origin: center;
+  animation: dibujar 2.4s ease forwards, rellenar 1.2s ease 2s forwards, flotar 5s ease-in-out 3s infinite;
+}
+.emb-estrella {
+  fill: #fff6d6; transform-box: fill-box; transform-origin: center;
+  animation: titilar 2.2s ease-in-out infinite;
+}
+.emb-orbita { transform-origin: 50px 50px; animation: girar 7s linear infinite; }
+.emb-orbita circle { fill: var(--rosa); }
+.emblema:hover .emb-orbita { animation-duration: 1.5s; }
+.emblema:hover .emb-estrella { animation-duration: 0.6s; }
+@keyframes dibujar { to { stroke-dashoffset: 0; } }
+@keyframes rellenar { to { fill-opacity: 0.9; } }
+@keyframes flotar { 50% { transform: translateY(-4px) rotate(-3deg); } }
+@keyframes titilar { 50% { transform: scale(1.5) rotate(20deg); opacity: 0.6; } }
+@keyframes girar { to { transform: rotate(360deg); } }
+@keyframes pulsoLuz { 50% { filter: drop-shadow(0 0 26px rgba(243, 167, 195, 0.8)); } }
+
+/* ===== Rejilla 3D ===== */
+.vision { position: relative; height: 280vh; }
+.vision__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.vision__grid {
+  position: absolute; inset: 0; display: grid; gap: 1.2vw; padding: 9vh 12vw;
+  grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);
+}
+.ficha {
+  border-radius: 14px; background-size: cover; background-position: center; will-change: transform;
+  border: 1px solid rgba(231, 184, 163, 0.25); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.vision__titulo {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; pointer-events: none;
+  font-family: var(--fuente-titulo); font-size: clamp(2rem, 6.5vw, 5.5rem); line-height: 1.1;
+  text-shadow: 0 4px 30px rgba(20, 13, 43, 0.9);
+}
+.vision__titulo span:last-child { color: var(--rosa); font-style: italic; }
+@media (max-width: 700px) {
+  .vision { height: 220vh; }
+  .vision__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 12vh 6vw;
+    gap: 3vw;
+  }
+}
+
+/* ===== Letras que entran desde lo borroso ===== */
+.palabra { display: inline-block; white-space: nowrap; }
+.char {
+  display: inline-block; opacity: 0; filter: blur(20px); transform: scale(0.8);
+  transition: opacity 0.8s, filter 0.8s, transform 0.8s;
+  transition-delay: calc(var(--i) * 45ms);
+}
+.visible .char, .char.visible { opacity: 1; filter: none; transform: none; }
+
+/* ===== Contenido que sube ===== */
+.sube {
+  opacity: 0; transform: translateY(150px);
+  transition: opacity 1s, transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.sube.visible { opacity: 1; transform: none; }
